@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
-    const user = await sql<User[]>`
+    const user = await sql<User>`
             SELECT * FROM users WHERE email = ${email}
         `;
     return user.rows[0];
